@@ -1,0 +1,12 @@
+{
+  "name": "pre-flight.js",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "Gruntfile.js",
+    "src",
+    "docs",
+    "test",
+    "build"
+  ]
+}
