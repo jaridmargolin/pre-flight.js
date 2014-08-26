@@ -25,7 +25,8 @@ define(function () {
  * @returns {object} options - passed object.
  */
 return function (options) {
-  if ((options.type === 'POST' || 'PUT') && options.data) {
+  var type = options.type;
+  if ((type === 'POST' || type === 'PUT') && options.data) {
     options.data = JSON.stringify(options.data);
   }
 

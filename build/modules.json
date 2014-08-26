@@ -1,4 +1,5 @@
 {
+  "assist"     : "/node_modules/assist.js/dist/amd",
   "proclaim"   : "/node_modules/proclaim/lib/proclaim",
   "sinon"      : "/node_modules/sinon/pkg/sinon"
 }

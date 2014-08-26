@@ -7,8 +7,9 @@
 define([
   'proclaim',
   'sinon',
+  'assist/jsonClone',
   'pre-flight'
-], function (assert, sinon, preflight) {
+], function (assert, sinon, jsonClone, preflight) {
 
 
 /* -----------------------------------------------------------------------------
@@ -24,27 +25,32 @@ describe('pre-flight.js', function () {
   });
 
   it('Should not alter GET.', function () {
-    this.options.type = 'GET';
+    var options = jsonClone(this.options);
+    options.type = 'GET';
     
-    assert.equal(preflight(this.options).data, this.options.data);
+    assert.deepEqual(preflight(options).data, this.options.data);
   });
 
   it('Should not alter DELETE.', function () {
-    this.options.type = 'DELETE';
+    var options = jsonClone(this.options);
+    options.type = 'DELETE';
     
-    assert.equal(preflight(this.options).data, this.options.data);
+    
+    assert.deepEqual(preflight(options).data, this.options.data);
   });
 
   it('Should stringify POST.', function () {
-    this.options.type = 'POST';
+    var options = jsonClone(this.options);
+    options.type = 'POST';
     
-    assert.equal(preflight(this.options).data, '{"key":"value"}');
+    assert.equal(preflight(options).data, '{"key":"value"}');
   });
 
   it('Should stringify PUT.', function () {
-    this.options.type = 'PUT';
+    var options = jsonClone(this.options);
+    options.type = 'PUT';
     
-    assert.equal(preflight(this.options).data, '{"key":"value"}');
+    assert.equal(preflight(options).data, '{"key":"value"}');
   });
 
 });
